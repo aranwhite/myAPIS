@@ -1,0 +1,20 @@
+{
+  "goid": "bf11f5ae8d34581f62ca34db6d9868be",
+  "guid": "8f8e3c9d-f086-45ac-9494-7f845c83723d",
+  "name": "JWT tes",
+  "resolutionPath": "/jwt",
+  "checksum": "e43725926b0c135cd62b0b44e504dbd3d54f19c4",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\"/>\n</wsp:Policy>\n"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "goid": "28be3fbfe74bb07d305d455712815f00",
+  "guid": "e28466d2-ced9-483a-8a73-71aa2521fa31",
+  "name": "JSON",
+  "resolutionPath": "/json",
+  "checksum": "4c383f8561f2300b3a418bcf3cfadaa35af92d56",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\"/>\n</wsp:Policy>\n"
+  }
+}

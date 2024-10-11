@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf2653be014",
+  "guid": "dda9ed1a-9986-4ea7-b313-e5512e28cd9f",
+  "name": "API1",
+  "resolutionPath": "/api1*",
+  "checksum": "aadae6efeff2fd689682fa4eb3f60da06fef246f",
+  "enabled": true,
+  "folderPath": "/DemoAPIs",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:CommentAssertion>\n            <L7p:Comment stringValue=\"**** Policy to proxy API call with no security !!!\"/>\n        </L7p:CommentAssertion>\n        <L7p:Split>\n            <L7p:InputVariable stringValue=\"request.http.uri\"/>\n            <L7p:OutputVariable stringValue=\"uriParts\"/>\n            <L7p:SplitPattern stringValue=\"/\"/>\n        </L7p:Split>\n        <L7p:HttpRoutingAssertion>\n            <L7p:FailOnErrorStatus booleanValue=\"false\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"https://localhost:9443/dbcontent/${uriParts[2]}${request.url.query}\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Cookie\"/>\n                    </L7p:item>\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"SOAPAction\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n        </L7p:HttpRoutingAssertion>\n        <L7p:CommentAssertion>\n            <L7p:Comment stringValue=\"Add support for JSON\"/>\n        </L7p:CommentAssertion>\n        <wsp:OneOrMore wsp:Usage=\"Required\">\n            <wsp:All wsp:Usage=\"Required\">\n                <L7p:ComparisonAssertion>\n                    <L7p:CaseSensitive booleanValue=\"false\"/>\n                    <L7p:Expression1 stringValue=\"${request.http.header.accept}\"/>\n                    <L7p:Expression2 stringValue=\"json\"/>\n                    <L7p:Operator operator=\"CONTAINS\"/>\n                    <L7p:Predicates predicates=\"included\">\n                        <L7p:item binary=\"included\">\n                            <L7p:CaseSensitive booleanValue=\"false\"/>\n                            <L7p:Operator operator=\"CONTAINS\"/>\n                            <L7p:RightValue stringValue=\"json\"/>\n                        </L7p:item>\n                    </L7p:Predicates>\n                </L7p:ComparisonAssertion>\n                <L7p:JsonTransformation>\n                    <L7p:RootTagString stringValue=\"\"/>\n                </L7p:JsonTransformation>\n            </wsp:All>\n            <wsp:All wsp:Usage=\"Required\">\n                <L7p:TrueAssertion/>\n            </wsp:All>\n        </wsp:OneOrMore>\n    </wsp:All>\n</wsp:Policy>\n "
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf265349bdf",
+  "guid": "221a91da-2d0f-41f4-bf4b-c136ad6924e3",
+  "name": "Strava",
+  "resolutionPath": "/strava",
+  "checksum": "51018d6da27fb0824fe178ab97d14068baae7805",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:HttpRoutingAssertion>\n            <L7p:FollowRedirects booleanValue=\"true\"/>\n            <L7p:HttpMethod httpMethod=\"GET\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"https://www.strava.com/oauth/authorize?response_type=code&amp;client_id=32550%0A&amp;scope=activity%3Aread_all&amp;redirect_uri=https%3A%2F%2Fdevelopers.strava.com\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Cookie\"/>\n                    </L7p:item>\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"SOAPAction\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n            <L7p:SamlAssertionVersion intValue=\"2\"/>\n        </L7p:HttpRoutingAssertion>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

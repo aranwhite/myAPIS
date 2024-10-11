@@ -1,0 +1,20 @@
+{
+  "goid": "bf11f5ae8d34581f62ca34db6d9868d3",
+  "guid": "bd1432d7-43c9-4478-80f6-e7b2b59dae9e",
+  "name": "encode",
+  "resolutionPath": "/encode",
+  "checksum": "46fb7b887462fd1f3fa290ce8fc72bcff9d84472",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:HttpBasic>\n            <L7p:Enabled booleanValue=\"false\"/>\n        </L7p:HttpBasic>\n        <L7p:Authentication>\n            <L7p:Enabled booleanValue=\"false\"/>\n            <L7p:IdentityProviderOid goidValue=\"46550c0e4ebd96b5ec224769dafcb035\"/>\n        </L7p:Authentication>\n        <L7p:SetVariable>\n            <L7p:Base64Expression stringValue=\"eyJlbnRpdHlfaWQiOiJsaWdodC5vZmZpY2Vfc3BvdCJ9\"/>\n            <L7p:ContentType stringValue=\"application/json; charset=utf-8\"/>\n            <L7p:DataType variableDataType=\"message\"/>\n            <L7p:VariableToSet stringValue=\"Mine\"/>\n        </L7p:SetVariable>\n        <L7p:HttpRoutingAssertion>\n            <L7p:HttpMethod httpMethod=\"POST\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"http://192.168.1.144:8123/api/services/homeassistant/turn_off\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:CustomizeValue stringValue=\"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI3NTU0MzUxMDVjZWI0YmJiYTI2OTEyZmFmOTQwNDk1ZiIsImlhdCI6MTY2NTA2NDY5MywiZXhwIjoxOTgwNDI0NjkzfQ.a_4A4H2P40eCCnOhEw-lSPwTkfLmElp-nZOesO2hVZ8\"/>\n                        <L7p:Name stringValue=\"Authorization\"/>\n                        <L7p:UsesCustomizedValue booleanValue=\"true\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestMsgSrc stringValue=\"Mine\"/>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n            <L7p:SamlAssertionVersion intValue=\"2\"/>\n        </L7p:HttpRoutingAssertion>\n        <L7p:EncodeDecode>\n            <L7p:CharacterEncoding stringValue=\"UTF-16\"/>\n            <L7p:Enabled booleanValue=\"false\"/>\n            <L7p:SourceVariableName stringValue=\"mine\"/>\n            <L7p:TargetDataType variableDataType=\"string\"/>\n            <L7p:TargetVariableName stringValue=\"out\"/>\n            <L7p:TransformType transformType=\"URL_ENCODE\"/>\n        </L7p:EncodeDecode>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"PGE+JHtvdXR9PC9hPg==\"/>\n            <L7p:Enabled booleanValue=\"false\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

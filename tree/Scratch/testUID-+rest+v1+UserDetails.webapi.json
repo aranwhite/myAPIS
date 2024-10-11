@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf2654b319c",
+  "guid": "198e6692-d64c-4057-8077-25687bcc2803",
+  "name": "testUID",
+  "resolutionPath": "/rest/v1/UserDetails",
+  "checksum": "e47f8f4b3171fb2ab951c5be63d9a3ae99daae91",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:Regex>\n            <L7p:AutoTarget booleanValue=\"false\"/>\n            <L7p:OtherTargetMessageVariable stringValue=\"request.http.parameter.userid\"/>\n            <L7p:Regex stringValue=\"^\\d{10}$\"/>\n            <L7p:Replacement stringValue=\"\"/>\n            <L7p:Target target=\"OTHER\"/>\n        </L7p:Regex>\n        <L7p:HttpRoutingAssertion>\n            <L7p:Enabled booleanValue=\"false\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"http://localhost:8080/mirror?userid=000${request.http.parameter.userid}\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Cookie\"/>\n                    </L7p:item>\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"SOAPAction\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n            <L7p:SamlAssertionVersion intValue=\"2\"/>\n        </L7p:HttpRoutingAssertion>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"T0sgPSAke3JlcXVlc3QuaHR0cC5wYXJhbWV0ZXJzLnVzZXJpZH0KaHR0cDovL2xvY2FsaG9zdDo4MDgwL21pcnJvcj91c2VyaWQ9MDAwJHtyZXF1ZXN0Lmh0dHAucGFyYW1ldGVyLnVzZXJpZH0=\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

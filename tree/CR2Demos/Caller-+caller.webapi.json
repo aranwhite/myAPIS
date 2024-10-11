@@ -1,0 +1,20 @@
+{
+  "goid": "bf11f5ae8d34581f62ca34db6d9868ee",
+  "guid": "dc0e403c-8e0d-45fe-8205-0f99df1b77ca",
+  "name": "Caller",
+  "resolutionPath": "/caller",
+  "checksum": "38b3b4ef9db0b34a5985fad13e55d137ba90bdd5",
+  "enabled": true,
+  "folderPath": "/CR2Demos",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:SetVariable>\n            <L7p:Base64Expression stringValue=\"cHJvdmlkZXIy\"/>\n            <L7p:VariableToSet stringValue=\"Key\"/>\n        </L7p:SetVariable>\n        <L7p:SetVariable>\n            <L7p:Base64Expression stringValue=\"bG9jYWxob3N0\"/>\n            <L7p:VariableToSet stringValue=\"CertsILike\"/>\n        </L7p:SetVariable>\n        <L7p:HttpRoutingAssertion>\n            <L7p:DynamicCertificateVariable stringValue=\"${CertsILike}\"/>\n            <L7p:DynamicPrivateKeyVariable stringValue=\"${Key}\"/>\n            <L7p:KeyAlias stringValue=\"provider1\"/>\n            <L7p:NonDefaultKeystoreId goidValue=\"00000000000000000000000000000002\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"https://localhost:9443/TLS\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Cookie\"/>\n                    </L7p:item>\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"SOAPAction\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n            <L7p:SamlAssertionVersion intValue=\"2\"/>\n            <L7p:UsesDefaultKeyStore booleanValue=\"false\"/>\n            <L7p:UsesDynamicPrivateKey booleanValue=\"true\"/>\n        </L7p:HttpRoutingAssertion>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

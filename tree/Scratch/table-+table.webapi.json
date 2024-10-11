@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf26539cfc3",
+  "guid": "c6e11938-bdd9-4173-bc2b-11b9091b428e",
+  "name": "table",
+  "resolutionPath": "/table",
+  "checksum": "b48a85f89e3db38063c2a99fc241d02160532a26",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:JavaScript>\n            <L7p:ExecutionTimeout stringValue=\"\"/>\n            <L7p:Name stringValue=\"\"/>\n            <L7p:Script stringValueReference=\"inline\"><![CDATA[context.setVariable(\"js.resp\", \"<html>\n<head>\n   <style>\n      table, th, td {\n         border: 1px solid black;\n         border-collapse: collapse; \n      }\n      td, th {\n         padding: 10px;\n      }\n   </style>\n</head>\n<body>\n   <h2>Convert JSON data into a html table using Javascript</h2>\n   <p>Click the following button to convert JSON results into HTML table</p><br>\n   <button id=\"btn\" onclick=\"convert( )\"> Click Here </button> <br>\n   <h3> Resulting Table: </h3>\n   <div id=\"container\"></div>\n   <script>\n   \n      // Function to convert JSON data to HTML table\n      function convert() {\n         \n         // Sample JSON data\n         let jsonData = [\n            {\n               name: \"Saurabh\",\n               age: \"20\",\n               city: \"Prayagraj\"\n            },\n            {\n               name: \"Vipin\",\n               age: 23,\n               city: \"Lucknow\",\n            },\n            {\n               name: \"Saksham\",\n               age: 21,\n               city: \"Noida\"\n            }\n         ];\n         \n         // Get the container element where the table will be inserted\n         let container = document.getElementById(\"container\");\n         \n         // Create the table element\n         let table = document.createElement(\"table\");\n         \n         // Get the keys (column names) of the first object in the JSON data\n         let cols = Object.keys(jsonData[0]);\n         \n         // Create the header element\n         let thead = document.createElement(\"thead\");\n         let tr = document.createElement(\"tr\");\n         \n         // Loop through the column names and create header cells\n         cols.forEach((item) => {\n            let th = document.createElement(\"th\");\n            th.innerText = item; // Set the column name as the text of the header cell\n            tr.appendChild(th); // Append the header cell to the header row\n         });\n         thead.appendChild(tr); // Append the header row to the header\n         table.append(tr) // Append the header to the table\n         \n         // Loop through the JSON data and create table rows\n         jsonData.forEach((item) => {\n            let tr = document.createElement(\"tr\");\n            \n            // Get the values of the current object in the JSON data\n            let vals = Object.values(item);\n            \n            // Loop through the values and create table cells\n            vals.forEach((elem) => {\n               let td = document.createElement(\"td\");\n               td.innerText = elem; // Set the value as the text of the table cell\n               tr.appendChild(td); // Append the table cell to the table row\n            });\n            table.appendChild(tr); // Append the table row to the table\n         });\n         container.appendChild(table) // Append the table to the container element\n      }\n   </script>\n</body>\n</html>\"]]></L7p:Script>\n        </L7p:JavaScript>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf2653be01b",
+  "guid": "ab897d7d-0d09-45fb-a370-ad02aa1936f1",
+  "name": "API2",
+  "resolutionPath": "/api2*",
+  "checksum": "2a2d997b1f2615b6ebe2720e283289fac9fb3a55",
+  "enabled": true,
+  "folderPath": "/DemoAPIs",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:CommentAssertion>\n            <L7p:Comment stringValue=\"**** Policy to proxy API call with Basic security\"/>\n        </L7p:CommentAssertion>\n        <L7p:CommentAssertion>\n            <L7p:Comment stringValue=\"**** ADD rate limit protection\"/>\n        </L7p:CommentAssertion>\n        <L7p:Split>\n            <L7p:InputVariable stringValue=\"request.http.uri\"/>\n            <L7p:OutputVariable stringValue=\"uriParts\"/>\n            <L7p:SplitPattern stringValue=\"/\"/>\n        </L7p:Split>\n        <L7p:AuditDetailAssertion>\n            <L7p:Detail stringValue=\"sss -- https://localhost:9443/dbcontent/${uriParts[2]}${request.url.query}\"/>\n        </L7p:AuditDetailAssertion>\n        <wsp:All wsp:Usage=\"Required\">\n            <L7p:HttpBasic/>\n            <L7p:Authentication>\n                <L7p:IdentityProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n            </L7p:Authentication>\n        </wsp:All>\n        <L7p:HttpRoutingAssertion>\n            <L7p:FailOnErrorStatus booleanValue=\"false\"/>\n            <L7p:OmitAuthHeaderConnectReuseSystemDefault boxedBooleanValue=\"true\"/>\n            <L7p:ProtectedServiceUrl stringValue=\"https://localhost:9443/dbcontent/${uriParts[2]}${request.url.query}\"/>\n            <L7p:ProxyPassword stringValueNull=\"null\"/>\n            <L7p:ProxyUsername stringValueNull=\"null\"/>\n            <L7p:RequestHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Cookie\"/>\n                    </L7p:item>\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"SOAPAction\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:RequestHeaderRules>\n            <L7p:RequestParamRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\"/>\n            </L7p:RequestParamRules>\n            <L7p:ResponseHeaderRules httpPassthroughRuleSet=\"included\">\n                <L7p:ForwardAll booleanValue=\"true\"/>\n                <L7p:Rules httpPassthroughRules=\"included\">\n                    <L7p:item httpPassthroughRule=\"included\">\n                        <L7p:Name stringValue=\"Set-Cookie\"/>\n                    </L7p:item>\n                </L7p:Rules>\n            </L7p:ResponseHeaderRules>\n        </L7p:HttpRoutingAssertion>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

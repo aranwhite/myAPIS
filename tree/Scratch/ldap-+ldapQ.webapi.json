@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf2653a48af",
+  "guid": "7be9642a-555d-47f1-8e73-2168843427fa",
+  "name": "ldap",
+  "resolutionPath": "/ldapQ",
+  "checksum": "398cc78e0018312ff5005a84d8e48be03cf00c8c",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:HttpBasic/>\n        <L7p:Authentication>\n            <L7p:IdentityProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n        </L7p:Authentication>\n        <L7p:LDAPQuery>\n            <L7p:AttrNames stringArrayValue=\"included\">\n                <L7p:item stringValue=\"departmentNumber\"/>\n            </L7p:AttrNames>\n            <L7p:CacheSize intValue=\"100\"/>\n            <L7p:EnableCache booleanValue=\"false\"/>\n            <L7p:LdapProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n            <L7p:QueryMappings queryAttributeMappings=\"included\">\n                <L7p:item mapping=\"included\">\n                    <L7p:AttributeName stringValue=\"departmentNumber\"/>\n                    <L7p:JoinMultivalued booleanValue=\"false\"/>\n                    <L7p:MatchingContextVariableName stringValue=\"clearanceLevel\"/>\n                </L7p:item>\n            </L7p:QueryMappings>\n            <L7p:SearchFilter stringValue=\"(cn=${request.authenticatedUser} )\"/>\n            <L7p:SearchFilterInjectionProtected booleanValue=\"true\"/>\n        </L7p:LDAPQuery>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"JHtyZXF1ZXN0LmF1dGhlbnRpY2F0ZWRVc2VyfSAtICR7Y2xlYXJhbmNlTGV2ZWx9\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

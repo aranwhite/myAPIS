@@ -1,0 +1,20 @@
+{
+  "goid": "0dc6964104ee321fb80e8700898c37bb",
+  "guid": "d69b7ac9-cf1a-4082-81d5-dc47d4f0b501",
+  "name": "LDAP",
+  "resolutionPath": "/ldap",
+  "checksum": "04391ae0db8519c1dd0687a2cc39c044cfbcb9f1",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:LDAPQuery>\n            <L7p:AttrNames stringArrayValue=\"included\">\n                <L7p:item stringValue=\"memberUid\"/>\n                <L7p:item stringValue=\"cn\"/>\n                <L7p:item stringValue=\"mail\"/>\n            </L7p:AttrNames>\n            <L7p:CacheSize intValue=\"100\"/>\n            <L7p:DnText stringValue=\"cn=admins,ou=group,dc=aranwhite,dc=me \"/>\n            <L7p:EnableCache booleanValue=\"false\"/>\n            <L7p:FailIfNoResults booleanValue=\"true\"/>\n            <L7p:IncludeEmptyAttributes booleanValue=\"true\"/>\n            <L7p:LdapProviderOid goidValue=\"2ebac5240e05e91ed267a85c6650fc13\"/>\n            <L7p:QueryMappings queryAttributeMappings=\"included\">\n                <L7p:item mapping=\"included\">\n                    <L7p:AttributeName stringValue=\"memberUid\"/>\n                    <L7p:JoinMultivalued booleanValue=\"false\"/>\n                    <L7p:MatchingContextVariableName stringValue=\"name\"/>\n                </L7p:item>\n                <L7p:item mapping=\"included\">\n                    <L7p:AttributeName stringValue=\"cn\"/>\n                    <L7p:JoinMultivalued booleanValue=\"false\"/>\n                    <L7p:MatchingContextVariableName stringValue=\"CN\"/>\n                </L7p:item>\n                <L7p:item mapping=\"included\">\n                    <L7p:AttributeName stringValue=\"mail\"/>\n                    <L7p:JoinMultivalued booleanValue=\"false\"/>\n                    <L7p:MatchingContextVariableName stringValue=\"objectClass\"/>\n                </L7p:item>\n            </L7p:QueryMappings>\n            <L7p:SearchFilter stringValue=\"(&amp;(memberUid=aranw)(cn=admins))\"/>\n            <L7p:SelectedScope stringValue=\"OBJECT\"/>\n        </L7p:LDAPQuery>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"JHtuYW1lfToke2NufToke21haWx9OlhYWAo=\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

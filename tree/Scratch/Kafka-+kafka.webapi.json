@@ -1,0 +1,20 @@
+{
+  "goid": "bf11f5ae8d34581f62ca34db6d9868c5",
+  "guid": "cdc4f1cf-9360-4073-9751-571c988089f7",
+  "name": "Kafka",
+  "resolutionPath": "/kafka",
+  "checksum": "8867a7ef4d3007859df8f7a8f210f60d957b6049",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\"/>\n</wsp:Policy>\n"
+  }
+}

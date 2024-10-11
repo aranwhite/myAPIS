@@ -1,0 +1,20 @@
+{
+  "goid": "0dc6964104ee321fb80e8700898c5dbf",
+  "guid": "2cc9d521-9d55-4368-9abe-0d07665f8507",
+  "name": "linux command",
+  "resolutionPath": "/linux",
+  "checksum": "2e47a0f7e3348e62c55982a8ad77b58ee08df1a9",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\"/>\n</wsp:Policy>\n"
+  }
+}

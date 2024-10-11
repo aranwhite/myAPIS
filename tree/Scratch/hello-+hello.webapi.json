@@ -1,0 +1,20 @@
+{
+  "goid": "c4e77a7656124937c74cdbf26534d09f",
+  "guid": "9d1397fa-0021-443e-af4c-423ee1566840",
+  "name": "hello",
+  "resolutionPath": "/hello",
+  "checksum": "036407d4299dbafdc726d1b9dd2bb9fb0b2d89c6",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:HttpBasic/>\n        <L7p:Authentication>\n            <L7p:IdentityProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n        </L7p:Authentication>\n        <L7p:LDAPQuery>\n            <L7p:AttrNames stringArrayValue=\"included\"/>\n            <L7p:CacheSize intValue=\"100\"/>\n            <L7p:Enabled booleanValue=\"false\"/>\n            <L7p:LdapProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n            <L7p:QueryMappings queryAttributeMappings=\"included\"/>\n            <L7p:SearchFilter stringValue=\"(cn=${request.authenticatedUser})\"/>\n            <L7p:SearchFilterInjectionProtected booleanValue=\"true\"/>\n        </L7p:LDAPQuery>\n        <L7p:MemberOfGroup>\n            <L7p:GroupId stringValue=\"ou=ladmins,dc=aranwhite,dc=me\"/>\n            <L7p:GroupName stringValue=\"ladmins\"/>\n            <L7p:IdentityProviderOid goidValue=\"c4e77a7656124937c74cdbf2653a47ed\"/>\n        </L7p:MemberOfGroup>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"PGhlbGxvLz4=\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

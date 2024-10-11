@@ -1,0 +1,20 @@
+{
+  "goid": "85d9434cffe179c093bec6570b3c1b7a",
+  "guid": "dcdde297-c6a5-4819-a90b-1546372feddc",
+  "name": "var",
+  "resolutionPath": "/var",
+  "checksum": "99f6de8a9a6832c7447cbaa9bab1e42c75960436",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"PGE+JHtnYXRld2F5LmNsdXN0ZXIuaG9zdG5hbWV9PC9hPg==\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}

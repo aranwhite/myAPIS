@@ -1,0 +1,20 @@
+{
+  "goid": "266cec54ac62bba3f506945d5443ea48",
+  "guid": "673606e8-3199-4e74-9979-86e7c79a6e10",
+  "name": "SAML",
+  "resolutionPath": "/SAML",
+  "checksum": "e454114bb606f92e99968a9fa000b5fe6a63c80b",
+  "enabled": true,
+  "folderPath": "/Scratch",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\"/>\n</wsp:Policy>\n"
+  }
+}

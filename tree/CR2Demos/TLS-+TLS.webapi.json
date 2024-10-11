@@ -1,0 +1,20 @@
+{
+  "goid": "bf11f5ae8d34581f62ca34db6d9868e7",
+  "guid": "b8898da9-49bb-40bc-9da4-1ac22d9c1b0a",
+  "name": "TLS",
+  "resolutionPath": "/TLS",
+  "checksum": "136705dd5efa9bd00e93a379c5d1c5841d0c242b",
+  "enabled": true,
+  "folderPath": "/CR2Demos",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "policy": {
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsp:Policy xmlns:L7p=\"http://www.layer7tech.com/ws/policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2002/12/policy\">\n    <wsp:All wsp:Usage=\"Required\">\n        <L7p:AuditAssertion/>\n        <L7p:SslAssertion>\n            <L7p:RequireClientAuthentication booleanValue=\"true\"/>\n        </L7p:SslAssertion>\n        <L7p:HardcodedResponse>\n            <L7p:Base64ResponseBody stringValue=\"PGFiPiR7cmVxdWVzdC5zc2wuY2xpZW50Q2VydGlmaWNhdGV9PC9hYj4=\"/>\n        </L7p:HardcodedResponse>\n    </wsp:All>\n</wsp:Policy>\n"
+  }
+}
